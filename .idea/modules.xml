@@ -10,10 +10,13 @@
       <module fileurl="file://$PROJECT_DIR$/CopyBytes/CopyBytes.iml" filepath="$PROJECT_DIR$/CopyBytes/CopyBytes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interface/Interface.iml" filepath="$PROJECT_DIR$/Interface/Interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/Methods/Methods.iml" filepath="$PROJECT_DIR$/Methods/Methods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Number/Number.iml" filepath="$PROJECT_DIR$/Number/Number.iml" />
       <module fileurl="file://$PROJECT_DIR$/Override/Override.iml" filepath="$PROJECT_DIR$/Override/Override.iml" />
       <module fileurl="file://$PROJECT_DIR$/Passing/Passing.iml" filepath="$PROJECT_DIR$/Passing/Passing.iml" />
       <module fileurl="file://$PROJECT_DIR$/Password/Password.iml" filepath="$PROJECT_DIR$/Password/Password.iml" />
       <module fileurl="file://$PROJECT_DIR$/Static/Static.iml" filepath="$PROJECT_DIR$/Static/Static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/String2/String2.iml" filepath="$PROJECT_DIR$/String2/String2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/This/This.iml" filepath="$PROJECT_DIR$/This/This.iml" />
       <module fileurl="file://$PROJECT_DIR$/code.iml" filepath="$PROJECT_DIR$/code.iml" />
