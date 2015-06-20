@@ -1,6 +1,7 @@
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
 
 /**
  * Created by tua26762 on 6/3/2015.
@@ -9,7 +10,7 @@ public class Collection {
 
     public Collection(){
 
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         for(int i=0;i<10;i++) {
             list.add(i);
         }
@@ -20,7 +21,7 @@ public class Collection {
 
         ArrayList();
 
-        Print();
+        //Print();
 
 
 
@@ -30,9 +31,9 @@ public class Collection {
 
     public void Print(){
 
-        for (int i : list)
+       /* for (int i : list)
             System.out.println(Arrays.deepToString(ArrayList.get(i)));
-        }
+        }*/
 
     }
 
