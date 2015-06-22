@@ -9,19 +9,29 @@ public class Sets {
 
     public static void main (String[] args){
 
-        Set<String> hashSet = new HashSet<>();
+        String[] randomStrings = {"i", "came", "i", "saw", "i", "left"};
 
-        for(String s: args){
-            hashSet.add(s);
-        }
+        Set<String> uniques = new HashSet<>();
+        Set<String> dups = new HashSet<>();
 
-        Iterator<String> iterator = hashSet.iterator();
+        for(String s: randomStrings)
+            if(!uniques.add(s))
+                dups.add(s);
 
+        uniques.removeAll(dups);
+
+        //uniques.addAll(dups);
+        //uniques.retainAll(dups);
+        //uniques.containsAll(dups);
+        //uniques.removeAll(dups);
+
+
+      /*  Iterator<String> iterator = hashSet.iterator();
         while(iterator.hasNext()){
             System.out.println(iterator.next());
-        }
+        }*/
 
-        //System.out.println(hashSet);
+        System.out.println("uniques= "+uniques+" dups= "+dups);
 
 
 
