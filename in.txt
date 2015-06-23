@@ -1,0 +1,16 @@
+A good program has a number of qualities. Depending on the domain, it must be usable, easy on the eye, or even fun. Some other qualities are more universal, and more importantly, stem from the code itself:
+
+Correctness. The program should behave as expected. Sometimes, it must not have even a single bug. Most of the time, we tolerate some glitches, which we correct upon discovery.
+Performance. The program should be fast. Sometimes, we can't get fast enough: we must crunch as much data as possible, compute as precisely as possible… Most of the time, fast enough is enough —even for real time software.
+Frugality. The program should save resources (memory, CPU, bandwidth…). Sometimes, we can't be frugal enough (shared hosting, running on battery…).
+
+1241155121
+
+////nn
+
+
+ssdfs
+
+cplines
+
+cpchar222

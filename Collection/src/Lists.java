@@ -10,12 +10,10 @@ public class Lists {
     public static void main(String[] args) {
 
         Random randomGenerator = new Random();
+        //int r = ThreadLocalRandom.current() .nextInt(4, 77);
 
         List<Integer> arrayList1 = new ArrayList<>();
         List<Character> arrayList2 = new ArrayList<>();
-
-
-  //
 
 
         for (int i = 0; i < 10; i++) {
@@ -29,6 +27,7 @@ public class Lists {
             System.out.print(iterator1.next()+" ");
         }
         System.out.println("");
+
 
         //swapping
 
@@ -48,19 +47,16 @@ public class Lists {
         Collections.sort(arrayList2);
         System.out.println(arrayList2);
 
-
-
         System.out.println("");
-
 
 
         String[] randWords = {"alpha", "beta", "delta", "gamma", "zeta"};
 
         List<String> words = Arrays.asList(randWords);
+
         System.out.println(words);
         Collections.shuffle(words, new Random());
         System.out.println(words);
-
 
 
         //return index
@@ -69,13 +65,6 @@ public class Lists {
 
         List<?> deck = new ArrayList<>();
         deck = Arrays.asList(randWords);
-
-
-
-                //dealHand(deck, 2);
-
-
-
 
 
 

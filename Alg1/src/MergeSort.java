@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by tua26762 on 6/21/2015.
@@ -28,6 +29,9 @@ public class MergeSort {
             }
 
         }
+
+        for(int i=0;i<10;i++)
+            numlist.add(ThreadLocalRandom.current().nextInt(4,77));
 
 
 
