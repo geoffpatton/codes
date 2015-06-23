@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Alg1/Alg1.iml" filepath="$PROJECT_DIR$/Alg1/Alg1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sorting/Alg1.iml" filepath="$PROJECT_DIR$/Sorting/Alg1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Alpha/Alpha.iml" filepath="$PROJECT_DIR$/Alpha/Alpha.iml" />
       <module fileurl="file://$PROJECT_DIR$/Array/Array.iml" filepath="$PROJECT_DIR$/Array/Array.iml" />
       <module fileurl="file://$PROJECT_DIR$/Array_String/Array_String.iml" filepath="$PROJECT_DIR$/Array_String/Array_String.iml" />
@@ -17,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/Passing/Passing.iml" filepath="$PROJECT_DIR$/Passing/Passing.iml" />
       <module fileurl="file://$PROJECT_DIR$/Password/Password.iml" filepath="$PROJECT_DIR$/Password/Password.iml" />
       <module fileurl="file://$PROJECT_DIR$/Regex/Regex.iml" filepath="$PROJECT_DIR$/Regex/Regex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SPOJ/SPOJ.iml" filepath="$PROJECT_DIR$/SPOJ/SPOJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/Static/Static.iml" filepath="$PROJECT_DIR$/Static/Static.iml" />
       <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
       <module fileurl="file://$PROJECT_DIR$/String2/String2.iml" filepath="$PROJECT_DIR$/String2/String2.iml" />
