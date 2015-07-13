@@ -43,8 +43,8 @@ public class Histogra {
            if (numberOfInput==0)
                 break;
 
-            int[] heightList = new int[numberOfInput];
-            int[] width = new int[numberOfInput];
+            long[] heightList = new long[numberOfInput];
+            long[] width = new long[numberOfInput];
             Arrays.fill(width, 1);
             Stack<Integer> leftQ = new Stack<>();
             Stack<Integer> rightQ = new Stack<>();
@@ -86,7 +86,7 @@ public class Histogra {
                 rightQ.push(i);
             }
 
-            int max = Integer.MIN_VALUE;
+            long max = Integer.MIN_VALUE;
             for(int i = 0; i < numberOfInput; i++){
                 // find the maximum value of all rectangle areas.
                 max = Math.max(max, width[i] * heightList[i]);

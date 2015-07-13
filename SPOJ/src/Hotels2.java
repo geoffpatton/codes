@@ -8,30 +8,25 @@ import java.util.StringTokenizer;
  */
 public class Hotels2  {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Hotels().run();
     }
 
-    public void run(){
-        BufferedReader buf = new BufferedReader( new InputStreamReader(System.in));
-        StringTokenizer tok = null;
-        try {
-            tok = new StringTokenizer(buf.readLine());
-        }catch (IOException e){
-            System.err.println(e.getMessage());
-            return;
-        }
+    public void run() throws IOException {
 
-        int numberOfHotels = Integer.parseInt(tok.nextToken());
-        int maxValue = Integer.parseInt(tok.nextToken());
-        int[] hotelArray = new int[numberOfHotels];
+        BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
+        StringTokenizer in = new StringTokenizer(br.readLine());
+
+        long numberOfHotels = Long.parseLong(in.nextToken());
+        long maxValue = Long.parseLong(in.nextToken());
+        long[] hotelArray = new long[(int) numberOfHotels];
 
         for (int i = 0; i<numberOfHotels; i++){
-            hotelArray[i] = Integer.parseInt(tok.nextToken());
+            hotelArray[i] = Long.parseLong(in.nextToken());
         }
 
-        int bestMax =0, start =0, end=0,currentMax=0;
-        //long currentMax=0;
+        long bestMax =0, currentMax=0;
+        int  start =0, end=0;
 
         while(end < numberOfHotels) {
             currentMax += hotelArray[end++];

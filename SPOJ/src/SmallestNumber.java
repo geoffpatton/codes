@@ -51,7 +51,7 @@ public class SmallestNumber {
     }
 
     public long gcd(long a, long b) {
-        while (b > 0) {
+        while (b > 0 && b<1000000007L) {
             long temp = b;
             b = a % b; // % is remainder
             a = temp;
