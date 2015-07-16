@@ -56,7 +56,8 @@ public class Lists {
 
         System.out.println(words);
         Collections.shuffle(words, new Random());
-        System.out.println(words);
+        for(String s : words)
+                System.out.print(s+" ");
 
 
         //return index
@@ -65,6 +66,8 @@ public class Lists {
 
         List<?> deck = new ArrayList<>();
         deck = Arrays.asList(randWords);
+
+        Set<String> noDups = new HashSet<>(words);
 
 
 

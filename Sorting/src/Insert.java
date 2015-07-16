@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by tua26762 on 6/14/2015.
@@ -21,17 +18,10 @@ public class Insert {
             randomList.add(x);
         }
 
-        System.out.println(randomList);
+        Set<Integer> noDups = new HashSet<>(randomList);
 
-       /* System.out.println("now run insertSort");
         List<Integer> sortList = insertSort(randomList);
-        System.out.println(sortList);
---
-        System.out.println("now run quickSort");
         List<Integer> sortList2 = quicksort(randomList);
-        System.out.println(sortList2);
-*/
-
     }
 
 
