@@ -32,8 +32,12 @@ public class StringBender {
             in = new StringTokenizer(br.readLine());
             int startLocation = Integer.parseInt(in.nextToken());
             int endLocation = Integer.parseInt(in.nextToken());
+            if (endLocation<length){
+                endLocation++;
+            }
 
-            swapped = swap(swapped[0], swapped[1], startLocation, endLocation + 1);
+
+            swapped = swap(swapped[0], swapped[1], startLocation, endLocation);
 
         }
         System.out.println(swapped[0]);
@@ -45,9 +49,6 @@ public class StringBender {
 
         StringBuilder sb1 = new StringBuilder(s1);
         StringBuilder sb2 = new StringBuilder(s2);
-
-        sb1.append(" ");
-        sb2.append(" ");
 
         String sub1 = sb1.substring(l,r);
         String sub2 = sb2.substring(l,r);
