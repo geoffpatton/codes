@@ -1,12 +1,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by geoffpatton on 8/5/2015.
  */
 public class BEHAPPY {
+    int count=0;
 
     public static void main(String[] args) throws IOException{
         new BEHAPPY().run();
@@ -14,10 +17,14 @@ public class BEHAPPY {
 
     private void run() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        StringTokenizer in = new StringTokenizer(br.readLine());
 
         while (true) {
-            StringTokenizer in = new StringTokenizer(br.readLine());
+            count=0;
+
+            while(in.hasMoreTokens()==false){
+                in = new StringTokenizer(br.readLine());
+            }
 
             int M = Integer.parseInt(in.nextToken());
             int N = Integer.parseInt(in.nextToken());
@@ -25,56 +32,63 @@ public class BEHAPPY {
             if(M == 0 && N == 0){
                 break;
             }
-            List<Integer[]> list = new ArrayList<>();
+            List<List<Integer>> res = new ArrayList<>();
 
             int Ai[] = new int[M];
             int Bi[] = new int[M];
 
-
-
             for (int i = 0; i < M; i++) {
-                in = new StringTokenizer(br.readLine());
+                //in = new StringTokenizer(br.readLine());
+                while(in.hasMoreTokens()==false){
+                    in = new StringTokenizer(br.readLine());
+                }
                 Ai[i] = Integer.parseInt(in.nextToken());
                 Bi[i] = Integer.parseInt(in.nextToken());
             }
 
             for(int i = 0; i<M; i++){
-                Integer[] temp = new Integer[Bi[i]-Ai[i]+1];
+                List<Integer> temp1 = new ArrayList<>();
                 for(int y = 0; y<=Bi[i]-Ai[i]; y++){
-                    temp[y] = Ai[i] +y;
+                    temp1.add(Ai[i] +y);
                 }
-                list.add(temp);
+                res.add(temp1);
             }
-
-
-            for (int i = 0; i < list.size(); i++) {
-
-                System.out.println(Arrays.deepToString(list.get(i)));
-
-            }
-            Integer ans = list.get(0)[1];
-
-            System.out.println(ans.toString());
-            int size = list.size();
-            System.out.println(size);
-
-            System.out.println(list.get(0).length);
-
-
-/*
-            3 5
-            0 1
-            1 3
-            1 4
-            0 0*/
-
-
-
+            calculate(res, M, N);
+            System.out.println(count);
         }
-
     }
 
+    private List<List<Integer>> calculate(List<List<Integer>> input, int M, int N) {
 
+        List<List<Integer>> res = new ArrayList<>();
+        if (input.isEmpty()) { // if no more elements to process
+            res.add(new ArrayList<>()); // then add empty list and return
+            return res;
+        } else {
+            process(input, res, M, N); // we need to calculate the cartesian product of input and store it in res variable
+        }
+        return res; // method completes , return result
+        //return count;
+    }
 
+    private void process(List<List<Integer>> lists, List<List<Integer>> res, int M, int N) {
+        List<Integer> head = lists.get(0); //take first element of the list
+        List<List<Integer>> tail = calculate(lists.subList(1, lists.size()), M, N); //invoke calculate on remaining element, here is recursion
 
+        for (Integer h : head) { // for each head
+            for (List<Integer> t : tail) { //iterate over the tail
+                List<java.lang.Integer> tmp = new ArrayList<>(t.size());
+                tmp.add(h); // add the head
+                tmp.addAll(t); // and current tail element
+                res.add(tmp);
+
+                if(tmp.size() == M){
+                    int sum = tmp.stream().mapToInt(value -> value).sum();
+                    if(sum == N){
+                        count++;
+                    }
+                }
+            }
+        }
+    }
 }
