@@ -22,7 +22,7 @@ public class BEHAPPY {
         while (true) {
             count=0;
 
-            while(in.hasMoreTokens()==false){
+            while(in.hasMoreTokens()==false){  //go to next line if no tokens exist
                 in = new StringTokenizer(br.readLine());
             }
 
@@ -38,7 +38,6 @@ public class BEHAPPY {
             int Bi[] = new int[M];
 
             for (int i = 0; i < M; i++) {
-                //in = new StringTokenizer(br.readLine());
                 while(in.hasMoreTokens()==false){
                     in = new StringTokenizer(br.readLine());
                 }
