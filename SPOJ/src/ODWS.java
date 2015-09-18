@@ -19,6 +19,5 @@ public class ODWS {
 
             System.out.println(s+" "+ t);
         }
-
     }
 }
