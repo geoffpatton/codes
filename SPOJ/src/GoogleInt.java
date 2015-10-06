@@ -4,19 +4,23 @@
 public class GoogleInt {
 
 
-    public void run(){
-        System.out.println(func(5).toString());
+
+
+    public static void main(String[] args){
+
+        new GoogleInt().run();
     }
-    public Integer func(int i) {
+
+    public void run(){
+        System.out.println(func(5));
+    }
+
+    public int func(int i) {
         if (i < 1) {
             return i;
         } else {
             return (i + func(i - 1));
         }
-    }
-
-    public static void main(String[] args){
-        new GoogleInt().run();
     }
 
 }
