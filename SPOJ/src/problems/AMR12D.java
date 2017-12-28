@@ -32,16 +32,14 @@ class AMR12D
 
         while (testCases-- > 0)
         {
-            String retVal = "NO";
+            String answer = "NO";
             String input = (br.readLine());
-
-            StringBuilder sb = new StringBuilder(input);
-            String rev = sb.reverse().toString();
+            String rev = new StringBuilder(input).reverse().toString();
             if (input.equals(rev))
             {
-                retVal = "YES";
+                answer = "YES";
             }
-            out.println(retVal);
+            out.println(answer);
         }
     }
 }
