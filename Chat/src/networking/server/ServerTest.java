@@ -1,4 +1,4 @@
-package networking.chatServer;
+package networking.server;
 
 import javax.swing.JFrame;
 

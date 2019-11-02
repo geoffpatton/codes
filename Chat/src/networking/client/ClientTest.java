@@ -1,4 +1,4 @@
-package networking.chatClient;
+package networking.client;
 
 import javax.swing.JFrame;
 

@@ -1,4 +1,4 @@
-package networking.chatClient;
+package networking.client;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
