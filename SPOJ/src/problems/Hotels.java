@@ -8,15 +8,12 @@ import java.io.PrintWriter;
  * HOTELS - Hotels Along the Croatian Coast Needs Parser Class to not get TLE
  * Created by geoffpatton on 6/30/2015.
  */
-class Hotels
-{
-    public static void main(String[] args) throws IOException
-    {
+class Hotels {
+    public static void main(String[] args) throws IOException {
         new Hotels().run();
     }
 
-    public void run() throws IOException
-    {
+    public void run() throws IOException {
         Parser in = new Parser(System.in);
         PrintWriter out = new PrintWriter(System.out, true);
 
@@ -26,32 +23,26 @@ class Hotels
 
         // populate hotel values in array
         int[] hotelArray = new int[numberOfHotels];
-        for (int i = 0; i < numberOfHotels; i++)
-        {
+        for (int i = 0; i < numberOfHotels; i++) {
             hotelArray[i] = in.nextInt();
         }
 
         int currentMax = 0, bestMax = 0, start = 0, end = 0;
 
-        while (start < numberOfHotels && end < numberOfHotels)
-        {
-            if (hotelArray[end] > maxValue)
-            {
+        while (start < numberOfHotels && end < numberOfHotels) {
+            if (hotelArray[end] > maxValue) {
                 start = end + 1;
                 end++;
                 break;
             }
             currentMax += hotelArray[end];
-            while (currentMax > maxValue && start < numberOfHotels)
-            {
+            while (currentMax > maxValue && start < numberOfHotels) {
                 currentMax -= hotelArray[start];
                 start++;
             }
-            if (currentMax > bestMax && currentMax <= maxValue)
-            {
+            if (currentMax > bestMax && currentMax <= maxValue) {
                 bestMax = currentMax;
-                if (bestMax == maxValue)
-                {
+                if (bestMax == maxValue) {
                     break;
                 }
             }
@@ -64,16 +55,14 @@ class Hotels
     /**
      * fast parser taking in an InputStream, with self-maintained buffer
      */
-    static class Parser
-    {
+    static class Parser {
         final private int BUFFER_SIZE = 65536; // 2^16, a good compromise for some problems
         private InputStream din; // Underlying input stream
         private byte[] buffer; // Self-maintained buffer
         private int bufferPointer; // Current read position in the buffer
         private int bytesRead; // Effective bytes in the buffer read from the input stream
 
-        public Parser(InputStream in)
-        {
+        public Parser(InputStream in) {
             din = in;
             buffer = new byte[BUFFER_SIZE];
             bufferPointer = bytesRead = 0;
@@ -85,8 +74,7 @@ class Hotels
          * @return The next integer.
          * @throws java.io.IOException
          */
-        public int nextInt() throws IOException
-        {
+        public int nextInt() throws IOException {
             int result = 0;
             byte c = read();
             while (c <= ' ')
@@ -94,8 +82,7 @@ class Hotels
             boolean neg = (c == '-');
             if (neg)
                 c = read();
-            while (c >= '0' && c <= '9')
-            {
+            while (c >= '0' && c <= '9') {
                 result = result * 10 + c - '0';
                 c = read();
             }
@@ -109,14 +96,12 @@ class Hotels
          * 
          * @return the next line of data.
          * @throws IOException
-         *             if an I/O error occurs.
+         *         if an I/O error occurs.
          */
-        public String readLine() throws IOException
-        {
+        public String readLine() throws IOException {
             StringBuilder line = new StringBuilder();
             char c;
-            while ((c = (char) (read())) != '\n')
-            {
+            while ((c = (char) (read())) != '\n') {
                 line.append(c);
             }
             return line.toString();
@@ -127,10 +112,9 @@ class Hotels
          * 
          * @return the next byte of data, or -1 if the end of the stream is reached.
          * @throws IOException
-         *             if an I/O error occurs.
+         *         if an I/O error occurs.
          */
-        public byte read() throws IOException
-        {
+        public byte read() throws IOException {
             if (bufferPointer == bytesRead)
                 fillBuffer();
             return buffer[bufferPointer++];
@@ -140,10 +124,9 @@ class Hotels
          * Read data from the input stream into the buffer
          * 
          * @throws IOException
-         *             if an I/O error occurs.
+         *         if an I/O error occurs.
          */
-        private void fillBuffer() throws IOException
-        {
+        private void fillBuffer() throws IOException {
             bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
             if (bytesRead == -1)
                 buffer[0] = -1;

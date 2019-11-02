@@ -1,4 +1,5 @@
 package problems;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -6,10 +7,11 @@ import java.util.Scanner;
  * Created by geoffpatton on 8/10/2015.
  */
 public class CANDY {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new CANDY().run();
     }
-    private void run(){
+
+    private void run() {
         Scanner in = new Scanner(System.in);
         int blocks = in.nextInt();
         int candyPacks[];
@@ -28,7 +30,7 @@ public class CANDY {
                 moves = 0;
                 numInEach = sum / candyPacks.length;
                 Arrays.sort(candyPacks);
-                for ( int j = candyPacks.length - 1; candyPacks[j] > numInEach; j-- ) {
+                for (int j = candyPacks.length - 1; candyPacks[j] > numInEach; j--) {
                     moves += (candyPacks[j] - numInEach);
                 }
                 System.out.println(moves);

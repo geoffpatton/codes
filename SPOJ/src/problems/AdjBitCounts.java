@@ -1,4 +1,5 @@
 package problems;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,14 +14,12 @@ public class AdjBitCounts {
     static BufferedReader reader;
     static StringTokenizer tok;
 
-
-
-    public static void main(String[] args){
-    /*
-     Reader.init( System.in );
-     double x = Reader.nextDouble();
-     int n = Reader.nextInt();
-     */
+    public static void main(String[] args) {
+        /*
+         * Reader.init( System.in );
+         * double x = Reader.nextDouble();
+         * int n = Reader.nextInt();
+         */
 
         String a = "5";
         String b = "2";
@@ -31,38 +30,33 @@ public class AdjBitCounts {
 
         int alpha2 = Integer.valueOf(alpha);
 
-       // byte alphaByte = Byte.parseByte(binary, a);
+        // byte alphaByte = Byte.parseByte(binary, a);
 
         System.out.println(alpha1);
 
-
-
-
-
     }
-
-
-
 
     /** call this method to initialize reader for InputStream */
     static void init(InputStream input) {
-        reader = new BufferedReader(new InputStreamReader(input) );
+        reader = new BufferedReader(new InputStreamReader(input));
         tok = new StringTokenizer("");
     }
 
     /** get next word */
     static String next() throws IOException {
-        while ( ! tok.hasMoreTokens() ) {
-            //TODO add check for eof if necessary
-            tok = new StringTokenizer(reader.readLine() );
+        while (!tok.hasMoreTokens()) {
+            // TODO add check for eof if necessary
+            tok = new StringTokenizer(reader.readLine());
         }
         return tok.nextToken();
     }
+
     static int nextInt() throws IOException {
-        return Integer.parseInt( next() );
+        return Integer.parseInt(next());
     }
+
     static double nextDouble() throws IOException {
-        return Double.parseDouble( next() );
+        return Double.parseDouble(next());
     }
 
 }

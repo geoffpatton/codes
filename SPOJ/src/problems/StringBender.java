@@ -1,4 +1,5 @@
 package problems;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,9 +10,10 @@ import java.util.StringTokenizer;
  *
  */
 public class StringBender {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         new StringBender().run();
     }
+
     private void run() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer in = new StringTokenizer(br.readLine());
@@ -27,16 +29,15 @@ public class StringBender {
         in = new StringTokenizer(br.readLine());
         int moves = Integer.parseInt(in.nextToken());
 
-        String[] swapped = {s1, s2};
+        String[] swapped = { s1, s2 };
 
         for (int i = 0; i < moves; i++) {
             in = new StringTokenizer(br.readLine());
             int startLocation = Integer.parseInt(in.nextToken());
             int endLocation = Integer.parseInt(in.nextToken());
-            if (endLocation<length){
+            if (endLocation < length) {
                 endLocation++;
             }
-
 
             swapped = swap(swapped[0], swapped[1], startLocation, endLocation);
 
@@ -46,20 +47,19 @@ public class StringBender {
 
     }
 
-    private String[] swap(String s1, String s2, int l, int r){
+    private String[] swap(String s1, String s2, int l, int r) {
 
         StringBuilder sb1 = new StringBuilder(s1);
         StringBuilder sb2 = new StringBuilder(s2);
 
-        String sub1 = sb1.substring(l,r);
-        String sub2 = sb2.substring(l,r);
+        String sub1 = sb1.substring(l, r);
+        String sub2 = sb2.substring(l, r);
 
-        s1= sb1.replace(l,r,sub2).toString();
-        s2= sb2.replace(l,r,sub1).toString();
+        s1 = sb1.replace(l, r, sub2).toString();
+        s2 = sb2.replace(l, r, sub1).toString();
 
-        String[] swapped = {s1,s2};
+        String[] swapped = { s1, s2 };
 
         return swapped;
     }
 }
-

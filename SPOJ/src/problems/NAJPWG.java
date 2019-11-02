@@ -1,4 +1,5 @@
 package problems;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,21 +10,22 @@ import java.util.Arrays;
  * not working
  */
 public class NAJPWG {
-    public static void main(String[] args)throws IOException{
+    public static void main(String[] args) throws IOException {
         new NAJPWG().run();
     }
-    private void run()throws IOException{
+
+    private void run() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int testCases = Integer.parseInt(br.readLine());
 
-        for (int i = 1; i<=testCases; i++){
+        for (int i = 1; i <= testCases; i++) {
 
             int n = Integer.parseInt(br.readLine());
             System.out.println(n);
             long[] range = new long[n];
-            for (int y=1;y<=n; y++){
-                range[y-1] = (long) y;
+            for (int y = 1; y <= n; y++) {
+                range[y - 1] = (long) y;
 
             }
             System.out.println(Arrays.toString(range));
@@ -34,10 +36,9 @@ public class NAJPWG {
         }
         System.out.print(sb);
     }
-    private static long gcd(long a, long b)
-    {
-        while (b > 0)
-        {
+
+    private static long gcd(long a, long b) {
+        while (b > 0) {
             long temp = b;
             b = a % b;
             a = temp;
@@ -45,10 +46,9 @@ public class NAJPWG {
         return a;
     }
 
-    private static long gcd(long[] input)
-    {
+    private static long gcd(long[] input) {
         long result = input[0];
-        for(int i = 1; i < input.length; i++){
+        for (int i = 1; i < input.length; i++) {
             result = gcd(result, input[i]);
             System.out.println(result);
         }

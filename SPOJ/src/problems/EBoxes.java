@@ -11,22 +11,18 @@ import java.io.PrintWriter;
  * @author Geoff Dec 28, 2017
  *
  */
-class EBoxes
-{
+class EBoxes {
 
-    public static void main(String[] args) throws NumberFormatException, IOException
-    {
+    public static void main(String[] args) throws NumberFormatException, IOException {
         new EBoxes().solve();
     }
 
-    void solve() throws NumberFormatException, IOException
-    {
+    void solve() throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(System.out, true);
         int testCases = Integer.parseInt(br.readLine());
 
-        while (testCases-- > 0)
-        {
+        while (testCases-- > 0) {
             String[] line = br.readLine().split(" ");
             int n = Integer.parseInt(line[0]);
             int k = Integer.parseInt(line[1]);

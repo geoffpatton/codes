@@ -1,7 +1,7 @@
 package problems;
+
 import java.util.*;
 import static java.util.Arrays.*;
-
 
 public class ONP {
 
@@ -17,8 +17,7 @@ public class ONP {
         return false;
     }
 
-    private int getPrecedence(String op)
-    {
+    private int getPrecedence(String op) {
         for (int i = 0; i < precedence.length; i++) {
             if (precedence[i].equals(op)) {
                 return i;
@@ -27,8 +26,7 @@ public class ONP {
         return -1;
     }
 
-    void run()
-    {
+    void run() {
         int numCases = scan.nextInt();
 
         for (int i = 0; i < numCases; i++) {
@@ -46,17 +44,17 @@ public class ONP {
                 } else {
                     // (l|r)paren
                     switch (operand) {
-                        case '(':
-                            operator.push('(');
-                            break;
-                        case ')':
-                            while (!operator.isEmpty() && operator.peek() != '(') {
-                                System.out.print(operator.pop());
-                                operator.pop(); // for first paren '('
-                            }
-                            break;
-                        default:
-                            break;
+                    case '(':
+                        operator.push('(');
+                        break;
+                    case ')':
+                        while (!operator.isEmpty() && operator.peek() != '(') {
+                            System.out.print(operator.pop());
+                            operator.pop(); // for first paren '('
+                        }
+                        break;
+                    default:
+                        break;
                     }
 
                     String s = operand.toString();
@@ -69,8 +67,7 @@ public class ONP {
                             // operator stack is non-empty
                             while (!operator.isEmpty()) {
                                 Character topStack = operator.peek();
-                                int predTopStack = getPrecedence(topStack
-                                        .toString());
+                                int predTopStack = getPrecedence(topStack.toString());
                                 int predScannedChar = getPrecedence(operand.toString());
                                 if (predTopStack > predScannedChar) {
                                     System.out.print(operator.pop());
@@ -94,13 +91,11 @@ public class ONP {
         }
     }
 
-    void debug(Object... os)
-    {
+    void debug(Object... os) {
         System.err.println(deepToString(os));
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         new ONP().run();
     }
 

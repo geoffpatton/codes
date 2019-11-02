@@ -1,4 +1,5 @@
 package threads;
+
 /**
  * Created by geoffpatton on 6/23/15.
  */
@@ -7,26 +8,16 @@ public class SimpleThreads {
     // Display a message, preceded by
     // the name of the current thread
     static void threadMessage(String message) {
-        String threadName =
-                Thread.currentThread().getName();
-        System.out.format("%s: %s%n",
-                threadName,
-                message);
+        String threadName = Thread.currentThread().getName();
+        System.out.format("%s: %s%n", threadName, message);
     }
 
-    private static class MessageLoop
-            implements Runnable {
+    private static class MessageLoop implements Runnable {
         public void run() {
-            String importantInfo[] = {
-                    "Mares eat oats",
-                    "Does eat oats",
-                    "Little lambs eat ivy",
-                    "A kid will eat ivy too"
-            };
+            String importantInfo[] = { "Mares eat oats", "Does eat oats", "Little lambs eat ivy",
+                "A kid will eat ivy too" };
             try {
-                for (int i = 0;
-                     i < importantInfo.length;
-                     i++) {
+                for (int i = 0; i < importantInfo.length; i++) {
                     // Pause for 4 seconds
                     Thread.sleep(4000);
                     // Print a message
@@ -38,8 +29,7 @@ public class SimpleThreads {
         }
     }
 
-    public static void main(String args[])
-            throws InterruptedException {
+    public static void main(String args[]) throws InterruptedException {
 
         // Delay, in milliseconds before
         // we interrupt MessageLoop
@@ -72,8 +62,7 @@ public class SimpleThreads {
             // for MessageLoop thread
             // to finish.
             t.join(1000);
-            if (((System.currentTimeMillis() - startTime) > patience)
-                    && t.isAlive()) {
+            if (((System.currentTimeMillis() - startTime) > patience) && t.isAlive()) {
                 threadMessage("Tired of waiting!");
                 t.interrupt();
                 // Shouldn't be long now

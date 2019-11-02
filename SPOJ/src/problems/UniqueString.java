@@ -1,4 +1,5 @@
 package problems;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,13 +8,13 @@ import java.util.Set;
  */
 public class UniqueString {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Set<String> uniques = new HashSet<>();
         Set<String> dups = new HashSet<>();
 
-        for(String s : args){
-            if(!uniques.add(s)){
+        for (String s : args) {
+            if (!uniques.add(s)) {
                 dups.add(s);
             }
         }

@@ -9,10 +9,8 @@ import java.util.Arrays;
  * 
  * @author Geoff Jul 6, 2018
  */
-class HackRndm
-{
-    public static void main(String[] args) throws Exception
-    {
+class HackRndm {
+    public static void main(String[] args) throws Exception {
         // had to use parser for faster input
         Parser in = new Parser(System.in);
 
@@ -24,8 +22,7 @@ class HackRndm
         int[] numbersArray = new int[n];
 
         // populate numbers array from 2nd line
-        for (int i = 0; i < n; i++)
-        {
+        for (int i = 0; i < n; i++) {
             numbersArray[i] = in.nextInt();
         }
 
@@ -33,11 +30,9 @@ class HackRndm
         Arrays.sort(numbersArray);
 
         // iterate over the array
-        for (int y = 0; y < n; ++y)
-        {
+        for (int y = 0; y < n; ++y) {
             // uses binary search to find if a entry exists equal to the value + k
-            if (Arrays.binarySearch(numbersArray, numbersArray[y] + k) >= 0)
-            {
+            if (Arrays.binarySearch(numbersArray, numbersArray[y] + k) >= 0) {
                 ++pairCount;
             }
         }
@@ -49,23 +44,20 @@ class HackRndm
 /**
  * Parser for fast input
  */
-class Parser
-{
+class Parser {
     final private int BUFFER_SIZE = 1 << 16;
 
     private DataInputStream din;
     private byte[] buffer;
     private int bufferPointer, bytesRead;
 
-    public Parser(InputStream in)
-    {
+    public Parser(InputStream in) {
         din = new DataInputStream(in);
         buffer = new byte[BUFFER_SIZE];
         bufferPointer = bytesRead = 0;
     }
 
-    public long nextLong() throws Exception
-    {
+    public long nextLong() throws Exception {
         long ret = 0;
         byte c = read();
         while (c <= ' ')
@@ -73,35 +65,29 @@ class Parser
         boolean neg = c == '-';
         if (neg)
             c = read();
-        do
-        {
+        do {
             ret = ret * 10 + c - '0';
             c = read();
-        }
-        while (c > ' ');
+        } while (c > ' ');
         if (neg)
             return -ret;
         return ret;
     }
 
     // reads in the next string
-    public String next() throws Exception
-    {
+    public String next() throws Exception {
         StringBuilder ret = new StringBuilder();
         byte c = read();
         while (c <= ' ')
             c = read();
-        do
-        {
+        do {
             ret = ret.append((char) c);
             c = read();
-        }
-        while (c > ' ');
+        } while (c > ' ');
         return ret.toString();
     }
 
-    public int nextInt() throws Exception
-    {
+    public int nextInt() throws Exception {
         int ret = 0;
         byte c = read();
         while (c <= ' ')
@@ -109,26 +95,22 @@ class Parser
         boolean neg = c == '-';
         if (neg)
             c = read();
-        do
-        {
+        do {
             ret = ret * 10 + c - '0';
             c = read();
-        }
-        while (c > ' ');
+        } while (c > ' ');
         if (neg)
             return -ret;
         return ret;
     }
 
-    private void fillBuffer() throws Exception
-    {
+    private void fillBuffer() throws Exception {
         bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
         if (bytesRead == -1)
             buffer[0] = -1;
     }
 
-    private byte read() throws Exception
-    {
+    private byte read() throws Exception {
         if (bufferPointer == bytesRead)
             fillBuffer();
         return buffer[bufferPointer++];

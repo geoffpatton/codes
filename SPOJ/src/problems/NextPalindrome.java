@@ -1,4 +1,5 @@
 package problems;
+
 import java.util.*;
 import java.io.*;
 
@@ -32,21 +33,20 @@ public class NextPalindrome implements Runnable {
             res.append("1");
             return res;
         }
-        //copy
+        // copy
         for (int i = size / 2; i < size; i++) {
             arr[i] = arr[size - i - 1];
         }
-//        for (int i = 0; i < size; i++) {
-//           System.err.print(arr[i]);
-//        }
-//        System.out.println();
-
+        // for (int i = 0; i < size; i++) {
+        // System.err.print(arr[i]);
+        // }
+        // System.out.println();
 
         if (compare(arr, n.toCharArray()) == 1) {
-            //System.out.println("check1");
+            // System.out.println("check1");
             return toStringBuffer(arr);
         } else {
-            //System.out.println("check2");
+            // System.out.println("check2");
             int left, right;
             if (size % 2 == 0) {
                 left = (size - 1) / 2;
@@ -55,7 +55,7 @@ public class NextPalindrome implements Runnable {
                 left = size / 2;
                 right = size / 2;
             }
-            //System.out.println(n + " " + left + " " + right);
+            // System.out.println(n + " " + left + " " + right);
             while (left >= 0) {
 
                 if (arr[left] >= '0' && arr[left] <= '8') {
@@ -133,7 +133,7 @@ public class NextPalindrome implements Runnable {
         }
     }
 
-    //-----------------------------------------------------------
+    // -----------------------------------------------------------
     public static void main(String[] args) {
         new NextPalindrome().run();
     }
@@ -167,6 +167,7 @@ public class NextPalindrome implements Runnable {
     public double nextDouble() throws IOException {
         return Double.parseDouble(nextToken());
     }
+
     BufferedReader in;
     StringTokenizer tok;
 }

@@ -16,27 +16,20 @@ import java.io.InputStreamReader;
  * @author Geoff
  *
  */
-class EC_CONB
-{
-    public static void main(String[] args) throws IOException
-    {
+class EC_CONB {
+    public static void main(String[] args) throws IOException {
         new EC_CONB().run();
     }
 
-    void run() throws IOException
-    {
+    void run() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Integer testCases = Integer.parseInt(br.readLine());
-        while (testCases-- > 0)
-        {
+        while (testCases-- > 0) {
             Integer num = Integer.parseInt(br.readLine());
             // if odd print
-            if (num % 2 != 0)
-            {
+            if (num % 2 != 0) {
                 System.out.println(num);
-            } 
-            else
-            {
+            } else {
                 // flip bits of the value
                 System.out.println(getReverse(num));
             }
@@ -50,8 +43,7 @@ class EC_CONB
      * @param val
      * @return
      */
-    Integer getReverse(Integer val)
-    {
+    Integer getReverse(Integer val) {
         return Integer.parseInt(new StringBuilder(Integer.toBinaryString(val)).reverse().toString(), 2);
     }
 }

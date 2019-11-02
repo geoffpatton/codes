@@ -18,26 +18,21 @@ import java.util.HashMap;
  * 
  * @author Geoff
  */
-class Cran02
-{
-    public static void main(String[] args) throws IOException
-    {
+class Cran02 {
+    public static void main(String[] args) throws IOException {
         new Cran02().run();
     }
 
-    void run() throws IOException
-    {
+    void run() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int testCases = Integer.parseInt(br.readLine());
-        while (testCases-- > 0)
-        {
+        while (testCases-- > 0) {
             int testNumbers = Integer.parseInt(br.readLine()), sum = 0;
             HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
             map.put(0, 1);
             long totalSeq = 0;
             String[] line = br.readLine().split(" ");
-            for (int i = 0; i < testNumbers; i++)
-            {
+            for (int i = 0; i < testNumbers; i++) {
                 int curVal = Integer.parseInt(line[i]);
                 sum += curVal;
                 Integer seq = map.get(sum);

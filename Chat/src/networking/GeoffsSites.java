@@ -17,52 +17,52 @@ import javax.swing.event.ListSelectionListener;
 
 public class GeoffsSites extends JApplet {
 
-	private HashMap<String, URL> websiteInfo;
-	private List<String> titles;
-	private JList mainList;
+    private HashMap<String, URL> websiteInfo;
+    private List<String> titles;
+    private JList mainList;
 
-	public void init() {
+    public void init() {
 
-		websiteInfo = new HashMap<String, URL>();
-		titles = new ArrayList<String>();
+        websiteInfo = new HashMap<>();
+        titles = new ArrayList<>();
 
-		grabHtmlInfo();
-		add(new JLabel("what website to visit"), BorderLayout.NORTH);
-		mainList = new JList(titles.toArray());
+        grabHtmlInfo();
+        add(new JLabel("what website to visit"), BorderLayout.NORTH);
+        mainList = new JList(titles.toArray());
 
-		mainList.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				Object object = mainList.getSelectedValue();
-				URL newDocument = websiteInfo.get(object);
-				AppletContext browser = getAppletContext();
-				browser.showDocument(newDocument);
-			}
-		});
-		add(new JScrollPane(mainList), BorderLayout.CENTER);
-	}
+        mainList.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                Object object = mainList.getSelectedValue();
+                URL newDocument = websiteInfo.get(object);
+                AppletContext browser = getAppletContext();
+                browser.showDocument(newDocument);
+            }
+        });
+        add(new JScrollPane(mainList), BorderLayout.CENTER);
+    }
 
-	private void grabHtmlInfo() {
-		String title;
-		String address;
-		URL url;
-		int counter = 0;
-		title = getParameter("title" + counter);
+    private void grabHtmlInfo() {
+        String title;
+        String address;
+        URL url;
+        int counter = 0;
+        title = getParameter("title" + counter);
 
-		while (title != null) {
-			address = getParameter("address" + counter);
+        while (title != null) {
+            address = getParameter("address" + counter);
 
-			try {
-				url = new URL(address);
-				websiteInfo.put(title, url);
-				titles.add(title);
+            try {
+                url = new URL(address);
+                websiteInfo.put(title, url);
+                titles.add(title);
 
-			} catch (MalformedURLException urlException) {
-				urlException.printStackTrace();
-			}
-			++counter;
-			title = getParameter("title" + counter);
-		}
+            } catch (MalformedURLException urlException) {
+                urlException.printStackTrace();
+            }
+            ++counter;
+            title = getParameter("title" + counter);
+        }
 
-	}
+    }
 
 }
