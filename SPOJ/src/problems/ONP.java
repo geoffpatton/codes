@@ -1,7 +1,9 @@
 package problems;
 
-import java.util.*;
-import static java.util.Arrays.*;
+import static java.util.Arrays.deepToString;
+
+import java.util.Scanner;
+import java.util.Stack;
 
 public class ONP {
 

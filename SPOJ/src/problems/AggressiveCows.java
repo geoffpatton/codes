@@ -1,6 +1,9 @@
 package problems;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by geoffpatton on 6/26/2015.
