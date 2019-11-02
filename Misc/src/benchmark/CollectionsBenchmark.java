@@ -95,8 +95,7 @@ class CollectionsBenchmark {
     private void sleeper(int sleepTime) {
         try {
             Thread.sleep(sleepTime);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

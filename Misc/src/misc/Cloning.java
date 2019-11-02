@@ -48,6 +48,6 @@ class Person implements Cloneable {
     @Override
     public String toString() {
         return "Person [age=" + age + ", isCool=" + isCool + ", hairColor=" + hairColor + ", jobCount=" + jobCount.get()
-                + "]";
+            + "]";
     }
 }
