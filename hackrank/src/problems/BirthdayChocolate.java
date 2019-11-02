@@ -37,7 +37,7 @@ public class BirthdayChocolate {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(bufferedReader.readLine().trim());
+        bufferedReader.readLine();
         List<Integer> s = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" ")).map(Integer::parseInt)
                 .collect(Collectors.toList());
         String[] dm = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
