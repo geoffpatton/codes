@@ -98,4 +98,47 @@ public class HackerRankTests {
         assertTrue(Arrays.equals(result2, target.rotLeft(case2, 13)));
     }
 
+    @Test
+    public void testMinimumBribes() {
+        int[] case1 = { 2, 1, 5, 3, 4 };
+        assertEquals(3, target.minimumBribes(case1));
+        int[] case2 = { 2, 5, 1, 3, 4 };
+        assertEquals(-1, target.minimumBribes(case2));
+        int[] case3 = { 1, 2, 5, 3, 4, 7, 8, 6 };
+        assertEquals(4, target.minimumBribes(case3));
+        int[] case4 = { 1, 2, 5, 3, 7, 8, 6, 4 };
+        assertEquals(7, target.minimumBribes(case4));
+    }
+
+    @Test
+    public void testTwoStrings() {
+        assertEquals("YES", target.twoStrings("hello", "world"));
+        assertEquals("YES", target.twoStrings("ant", "abby"));
+        assertEquals("NO", target.twoStrings("hi", "world"));
+        assertEquals("NO", target.twoStrings("beetroot", "sandals"));
+    }
+
+    @Test
+    public void testWhatFlavors() {
+        int[] case1 = { 1, 4, 5, 3, 2 };
+        target.whatFlavors(case1, 4); // 1 4
+        int[] case2 = { 2, 2, 4, 3 };
+        target.whatFlavors(case2, 4); // 1 2
+        int[] case3 = { 1, 4, 5, 3, 2 };
+        target.whatFlavors(case3, 4); // 1 4
+        int[] case4 = { 4, 3, 2, 5, 7 };
+        target.whatFlavors(case4, 8); // 2 4
+    }
+
+    @Test
+    public void testMinimumSwaps() {
+        int[] case1 = { 4, 3, 1, 2 };
+        assertEquals(3, target.minimumSwaps(case1));
+        int[] case2 = { 2, 3, 4, 1, 5 };
+        assertEquals(3, target.minimumSwaps(case2));
+        int[] case3 = { 1, 3, 5, 2, 4, 6, 7 };
+        assertEquals(3, target.minimumSwaps(case3));
+
+    }
+
 }

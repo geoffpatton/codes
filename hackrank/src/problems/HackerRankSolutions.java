@@ -1,5 +1,11 @@
 package problems;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 class HackerRankSolutions {
 
     /**
@@ -147,4 +153,112 @@ class HackerRankSolutions {
         }
         return result;
     }
+
+    /**
+     * Print an integer representing the minimum number of bribes necessary, or Too chaotic
+     * if the line configuration is not possible.
+     * 
+     * @param q array describing the final state of the queue
+     * @return minimum bribes
+     */
+    int minimumBribes(int[] q) {
+        int bribes = 0;
+
+        int expected;
+        for (int i = 0; i < q.length; ++i) {
+            expected = i + 1;
+            if (q[i] - expected > 2) {
+                System.out.println("Too chaotic");
+                return -1;
+            }
+
+            for (int j = Math.max(0, (q[i] - 1) - 1); j < i; ++j) {
+                if (q[j] > q[i]) {
+                    ++bribes;
+                }
+            }
+        }
+        System.out.println(bribes);
+
+        return bribes;
+    }
+
+    /**
+     * Given two strings, determine if they share a common substring. A substring may be as small as one character.
+     * <p>
+     * For example, the words "a", "and", "art" share the common substring a.
+     * The words "be" and "cat" do not share a substring.
+     * 
+     * @param s1
+     * @param s2
+     * @return a string, either YES or NO based on whether the strings share a common substring.
+     */
+    String twoStrings(String s1, String s2) {
+        Set<Character> letters = new HashSet<>();
+        char c;
+        for (int i = 0; i < s1.length(); ++i) {
+            c = s1.charAt(i);
+            if (letters.add(c) && s2.indexOf(c) != -1) {
+                return "YES";
+            }
+        }
+        return "NO";
+    }
+
+    /**
+     * Determine the two flavors they will purchase and print them as two space-separated integers on a line.
+     * <p>
+     * Print two space-separated integers denoting the respective indices for the two distinct flavors they choose to
+     * purchase in ascending order.
+     * 
+     * @param cost an array of integers representing price for a flavor
+     * @param money an integer representing the amount of money they have to spend
+     */
+    void whatFlavors(int[] cost, int money) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int len = cost.length;
+        for (int i = 0; i < len; ++i) {
+            map.put(cost[i], (i + 1));
+        }
+        for (int i = 0; i < len; ++i) {
+            int val = Math.abs(money - cost[i]);
+            if (map.containsKey(cost[i]) && map.containsKey(val) && map.get(val) != (i + 1)) {
+                System.out.println((i + 1) + " " + map.get(val));
+                break;
+            }
+        }
+    }
+
+    /**
+     * Minimum Swaps 2
+     * <p>
+     * Find the minimum number of swaps required to sort the array in ascending order.
+     * 
+     * @param arr an unordered array of integers
+     * @return an integer representing the minimum number of swaps to sort the array.
+     */
+    int minimumSwaps(int[] arr) {
+        int len = arr.length;
+
+        System.out.println(Arrays.toString(arr));
+        int swaps = 0;
+        int index;
+        int i = 0;
+        while (i < len) {
+            index = arr[i] - 1;
+            if (arr[i] != i + 1) {
+                int tmp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = tmp;
+                ++swaps;
+            } else {
+                ++i; // increment i when no swap has been made
+            }
+        }
+        System.out.println("swaps: " + swaps);
+        System.out.println(Arrays.toString(arr));
+
+        return swaps;
+    }
+
 }
