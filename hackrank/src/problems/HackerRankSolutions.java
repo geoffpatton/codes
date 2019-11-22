@@ -1,6 +1,7 @@
 package problems;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -259,6 +260,114 @@ class HackerRankSolutions {
         System.out.println(Arrays.toString(arr));
 
         return swaps;
+    }
+
+    /**
+     * Alternating Characters
+     * <p>
+     * You are given a string containing characters and only.
+     * Your task is to change it into a string such that there are no matching adjacent characters
+     * 
+     * @param s the string
+     * @return integer representing the minimum number of deletions to make the alternating string
+     */
+    int alternatingCharacters(String s) {
+        int len = s.length();
+        int deletions = 0;
+
+        if (len < 2) {
+            return deletions;
+        }
+
+        char[] a = s.toCharArray();
+        char lastChar = a[0];
+
+        for (int i = 1; i < len; ++i) {
+            if (lastChar == a[i]) {
+                ++deletions;
+            } else {
+                lastChar = a[i];
+            }
+        }
+
+        return deletions;
+    }
+
+    /**
+     * Mark and Toys
+     * <p>
+     * Given a list of prices and an amount to spend, what is the maximum number of toys you can buy
+     * 
+     * @param prices an array of integers representing toy prices
+     * @param k an integer, the budget
+     * @return an integer representing the maximum number of toys Mark can purchase.
+     */
+    int maximumToys(int[] prices, int k) {
+
+        Arrays.sort(prices); // sort prices
+
+        int cost = 0;
+        int toys;
+        // iterate over prices, when cost is greater than budget return
+        for (toys = 0; toys < prices.length; ++toys) {
+            cost += prices[toys];
+            if (cost > k) {
+                break;
+            }
+        }
+
+        return toys;
+    }
+
+    static class Player {
+        String name;
+        int score;
+
+        Player(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        @Override
+        public String toString() {
+            return name + " " + score;
+        }
+
+    }
+
+    /**
+     * Sorting: Comparator
+     * <p>
+     * Write a comparator that sorts Players in order of decreasing score.
+     * If 2 or more players have the same score, sort those players alphabetically ascending by name
+     */
+    static class Checker implements Comparator<Player> {
+        /*
+         * (non-Javadoc)
+         * 
+         * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+         */
+        @Override
+        public int compare(Player a, Player b) {
+            int result = b.score - a.score;
+            if (result == 0) {
+                result = a.name.compareTo(b.name);
+            }
+            return result;
+        }
+    }
+
+    /**
+     * Flipping bits
+     * <p>
+     * Given a list of 32 bit unsigned integers. Flip all the bits an retthe unsigned decimal integer result.
+     * 
+     * @param n an integer as a long
+     * @return the unsigned decimal integer result.
+     */
+    long flippingBits(long n) {
+        long bitmask = Long.MAX_VALUE >>> 31; // create a mask for 32 bits
+        return (~n & bitmask); // invert with mask
     }
 
 }

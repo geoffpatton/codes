@@ -8,6 +8,9 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
+import problems.HackerRankSolutions.Checker;
+import problems.HackerRankSolutions.Player;
+
 public class HackerRankTests {
     HackerRankSolutions target;
 
@@ -138,7 +141,62 @@ public class HackerRankTests {
         assertEquals(3, target.minimumSwaps(case2));
         int[] case3 = { 1, 3, 5, 2, 4, 6, 7 };
         assertEquals(3, target.minimumSwaps(case3));
+    }
 
+    @Test
+    public void testAlternatingCharacters() {
+        assertEquals(3, target.alternatingCharacters("AAAA"));
+        assertEquals(4, target.alternatingCharacters("BBBBB"));
+        assertEquals(0, target.alternatingCharacters("ABABABAB"));
+        assertEquals(0, target.alternatingCharacters("BABABA"));
+        assertEquals(4, target.alternatingCharacters("AAABBB"));
+        assertEquals(6, target.alternatingCharacters("AAABBBAABB"));
+    }
+
+    @Test
+    public void testMaximumToys() {
+        int[] case1 = { 1, 12, 5, 111, 200, 1000, 10 };
+        assertEquals(4, target.maximumToys(case1, 50));
+        int[] case2 = { 1, 2, 3, 4 };
+        assertEquals(3, target.maximumToys(case2, 7));
+        int[] case3 = { 3, 7, 2, 9, 4 };
+        assertEquals(3, target.maximumToys(case3, 15));
+
+    }
+
+    @Test
+    public void testChecker() {
+
+        Player amy = new Player("amy", 100);
+        Player david = new Player("david", 100);
+        Player heraldo = new Player("heraldo", 50);
+        Player aakansha = new Player("aakansha", 75);
+        Player aleksa = new Player("aleksa", 150);
+
+        Player[] players = { amy, david, heraldo, aakansha, aleksa };
+        Checker checker = new Checker();
+        Arrays.sort(players, checker);
+
+        for (int i = 0; i < players.length; i++) {
+            System.out.println(players[i]);
+        }
+
+    }
+
+    @Test
+    public void testFlippintBits() {
+        long testVal1 = 2147483647;
+        long result1 = 2147483648L;
+        assertEquals(result1, target.flippingBits(testVal1));
+        long testVal2 = 1L;
+        long result2 = 4294967294L;
+        assertEquals(result2, target.flippingBits(testVal2));
+        long testVal3 = 0L;
+        long result3 = 4294967295L;
+        assertEquals(result3, target.flippingBits(testVal3));
+        assertEquals(4294967295L, target.flippingBits(0));
+        assertEquals(3492223820L, target.flippingBits(802743475));
+        assertEquals(4259365872L, target.flippingBits(35601423));
     }
 
 }
