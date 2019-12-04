@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 class HackerRankSolutions {
 
@@ -368,6 +369,61 @@ class HackerRankSolutions {
     long flippingBits(long n) {
         long bitmask = Long.MAX_VALUE >>> 31; // create a mask for 32 bits
         return (~n & bitmask); // invert with mask
+    }
+
+    /**
+     * Minimum Absolute Difference in an Array
+     * <p>
+     * Given an array of integers, find and print the minimum absolute difference between any two elements in the array
+     * 
+     * @param arr an array of integers
+     * @return an integer that represents the minimum absolute difference between any pair of elements.
+     */
+    int minimumAbsoluteDifference(int[] arr) {
+        Arrays.sort(arr); // first sort the array
+
+        // set initial min from the difference of the first two items
+        int min = Math.abs(arr[0] - arr[1]);
+
+        // iterate through the rest of the array to find the min difference
+        for (int i = 2; i < arr.length; ++i) {
+            min = Math.min(min, Math.abs(arr[i] - arr[i - 1]));
+        }
+
+        return min;
+    }
+
+    /**
+     * Balanced Brackets
+     * <p>
+     * determine whether each sequence of brackets is balanced. If a string is balanced, return YES.
+     * Otherwise, return NO.
+     * 
+     * @param s a string of brackets
+     * @return a string: YES if the sequence is balanced or NO if it is not
+     */
+    String isBalanced(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        int len = s.length();
+        char c;
+        for (int i = 0; i < len; ++i) {
+            c = s.charAt(i);
+            if (c == '{' || c == '[' || c == '(') {
+                stack.push(c);
+            } else if (!stack.isEmpty() && ((c == '}' && stack.peek() == '{') || (c == ']' && stack.peek() == '[')
+                || (c == ')' && stack.peek() == '('))) {
+                stack.pop();
+            } else {
+                return "NO";
+            }
+        }
+
+        if (stack.isEmpty()) {
+            return "YES";
+        } else {
+            return "NO";
+        }
     }
 
 }

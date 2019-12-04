@@ -199,4 +199,39 @@ public class HackerRankTests {
         assertEquals(4259365872L, target.flippingBits(35601423));
     }
 
+    @Test
+    public void testMinimumAbsoluteDifference() {
+        int[] case1 = { -59, -36, -13, 1, -53, -92, -2, -96, -54, 75 };
+        assertEquals(1, target.minimumAbsoluteDifference(case1));
+        int[] case2 = { 1, -3, 71, 68, 17 };
+        assertEquals(3, target.minimumAbsoluteDifference(case2));
+        int[] case3 = { 3, -7, 0 };
+        assertEquals(3, target.minimumAbsoluteDifference(case3));
+
+    }
+
+    @Test
+    public void testIsBalanced() {
+        assertEquals("YES", target.isBalanced("{[()]}"));
+        assertEquals("NO", target.isBalanced("{[(])}"));
+        assertEquals("YES", target.isBalanced("{{[[(())]]}}"));
+        assertEquals("YES", target.isBalanced("{{([])}}"));
+        assertEquals("NO", target.isBalanced("{{)[](}}"));
+        assertEquals("YES", target.isBalanced("{(([])[])[]}"));
+        assertEquals("NO", target.isBalanced("{(([])[])[]]}"));
+        assertEquals("YES", target.isBalanced("{(([])[])[]}[]"));
+
+        assertEquals("YES", target.isBalanced("[](){()}"));
+        assertEquals("YES", target.isBalanced("()"));
+        assertEquals("YES", target.isBalanced("({}([][]))[]()"));
+        assertEquals("NO", target.isBalanced("{)[](}]}]}))}(())("));
+        assertEquals("NO", target.isBalanced("([[)"));
+
+        assertEquals("YES", target.isBalanced("{}"));
+        assertEquals("NO", target.isBalanced("}([[{)[]))]{){}["));
+        assertEquals("NO", target.isBalanced("{]]{()}{])"));
+        assertEquals("YES", target.isBalanced("(){}"));
+        assertEquals("YES", target.isBalanced("{}{()}{{}}"));
+    }
+
 }
