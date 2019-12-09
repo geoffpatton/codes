@@ -1,9 +1,13 @@
 package problems;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -424,6 +428,164 @@ class HackerRankSolutions {
         } else {
             return "NO";
         }
+    }
+
+    /**
+     * Hackerrank Sock Merchant
+     * <p>
+     * Given an array of integers representing the color of each sock,
+     * determine how many pairs of socks with matching colors there are
+     * 
+     * @param n the number of socks in the pile
+     * @param ar the colors of each sock
+     * @return an integer representing the number of matching pairs of socks that are available.
+     */
+    int sockMerchant(int n, int[] ar) {
+        int pairs = 0;
+        Collection<Integer> socks = new HashSet<>();
+
+        for (int i = 0; i < n; ++i) {
+            if (!socks.add(ar[i])) { // when sock exists add pair and remove it
+                ++pairs;
+                socks.remove(ar[i]);
+            }
+        }
+        return pairs;
+    }
+
+    /**
+     * Hackerrank Pairs
+     * <p>
+     * Determine the number of pairs of array elements that have a difference equal to a target value.
+     * 
+     * @param k the target difference
+     * @param arr an array of integers
+     * @return an integer representing the number of element pairs having the required difference.
+     */
+    int pairs(int k, int[] arr) {
+        int pairs = 0;
+        int len = arr.length;
+
+        Arrays.sort(arr);
+
+        int i = 0;
+        int j = 1;
+        int diff;
+
+        while (i < len && j < len) {
+            diff = arr[j] - arr[i];
+            if (diff == k) {
+                ++pairs;
+                ++j;
+            } else if (diff > k) {
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+
+        return pairs;
+    }
+
+    /**
+     * Hackerrank DFS: Connected Cell in a Grid
+     * <p>
+     * Given a matrix, find the number of cells in the largest region in the matrix
+     * 
+     * @param grid a two dimensional array of integers
+     * @return an integer value, the size of the largest region.
+     */
+    int maxRegion(int[][] grid) {
+        int maxRegionSize = 0;
+        for (int i = 0; i < grid.length; ++i) {
+            for (int j = 0; j < grid[0].length; ++j) {
+                maxRegionSize = Math.max(maxRegionSize, getRegionSize(grid, i, j));
+            }
+        }
+        return maxRegionSize;
+    }
+
+    /** get the region size for the given location in the matrix */
+    private int getRegionSize(int[][] grid, int i, int j) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == 0) {
+            return 0;
+        }
+        int count = grid[i][j]--;
+        // get the count for all of the surrounding cells
+        count += getRegionSize(grid, i + 1, j);
+        count += getRegionSize(grid, i - 1, j);
+        count += getRegionSize(grid, i, j + 1);
+        count += getRegionSize(grid, i, j - 1);
+        count += getRegionSize(grid, i + 1, j + 1);
+        count += getRegionSize(grid, i + 1, j - 1);
+        count += getRegionSize(grid, i - 1, j + 1);
+        count += getRegionSize(grid, i - 1, j - 1);
+        return count;
+    }
+
+    /**
+     * Hackerrank Hash Tables: Ransom Note
+     * <p>
+     * Given the words in the magazine and the words in the ransom note, print Yes if he can replicate
+     * his ransom note exactly using whole words from the magazine; otherwise, print No.
+     * 
+     * @param magazine an array of strings, each a word in the magazine
+     * @param note an array of strings, each a word in the ransom note
+     */
+    void checkMagazine(String[] magazine, String[] note) {
+        Map<String, Integer> wordCount = new HashMap<>();
+
+        for (String s : magazine) {
+            if (wordCount.containsKey(s)) {
+                wordCount.put(s, wordCount.get(s) + 1);
+            } else {
+                wordCount.put(s, 1);
+            }
+        }
+
+        for (String s : note) {
+            if (!wordCount.containsKey(s) || wordCount.get(s) < 1) {
+                System.out.println("No");
+                return;
+            } else {
+                wordCount.put(s, wordCount.get(s) - 1);
+            }
+        }
+
+        System.out.println("Yes");
+    }
+
+    /**
+     * Hackerrank Luck Balance
+     * <p>
+     * Find the maximum amount of luck balance achievable
+     * 
+     * @param k the number of important contests Lena can lose
+     * @param contests a 2D array of integers where each row contains two integers that represent
+     *        the luck balance and importance of the contest.
+     * @return an integer that represents the maximum luck balance achievable.
+     */
+    int luckBalance(int k, int[][] contests) {
+        int totalLuck = 0;
+        List<Integer> luckList = new ArrayList<>();
+
+        for (int i = 0; i < contests.length; ++i) {
+            totalLuck += contests[i][0];
+            if (contests[i][1] != 0) { // add the important contests to the list
+                luckList.add(contests[i][0]);
+            }
+        }
+
+        int listSize = luckList.size();
+        if (listSize > 0) {
+            Collections.sort(luckList); // sort the luck list
+            int n = listSize - k;
+            for (int i = 0; i < n; ++i) {
+                totalLuck -= 2 * luckList.get(i); // subtract the luck amount
+            }
+        }
+
+        return totalLuck;
     }
 
 }

@@ -234,4 +234,18 @@ public class HackerRankTests {
         assertEquals("YES", target.isBalanced("{}{()}{{}}"));
     }
 
+    @Test
+    public void testSockMerchant() {
+        assertEquals(3, target.sockMerchant(9, new int[] { 10, 20, 20, 10, 10, 30, 50, 10, 20 }));
+        assertEquals(2, target.sockMerchant(7, new int[] { 1, 2, 1, 2, 1, 3, 2 }));
+        assertEquals(4, target.sockMerchant(10, new int[] { 1, 1, 3, 1, 2, 1, 3, 3, 3, 3 }));
+    }
+
+    @Test
+    public void testPairs() {
+        assertEquals(3, target.pairs(2, new int[] { 1, 5, 3, 4, 2 }));
+        assertEquals(3, target.pairs(1, new int[] { 1, 2, 3, 4 }));
+        assertEquals(5, target.pairs(2, new int[] { 1, 3, 5, 8, 6, 4, 2 }));
+    }
+
 }
