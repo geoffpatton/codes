@@ -24,7 +24,7 @@ class CollectionsBenchmark {
     private void run() {
         System.out.println("Setting up test collections with size of: " + testSize);
         setup();
-        sleeper(10000);
+        BenchmarkUtil.sleeper(10000);
 
         long millisecondsStart;
         long timeSpentInMilliseconds;
@@ -44,7 +44,7 @@ class CollectionsBenchmark {
 
         selTime = 0;
 
-        sleeper(10000);
+        BenchmarkUtil.sleeper(10000);
         System.out.println("Starting Queue Test");
 
         for (int i = 0; i < 50; ++i) {
@@ -65,7 +65,7 @@ class CollectionsBenchmark {
         } else {
             System.out.println("List faster by:  " + (qTime - listTime));
         }
-        sleeper(2000);
+        BenchmarkUtil.sleeper(2000);
 
     }
 
@@ -89,14 +89,6 @@ class CollectionsBenchmark {
         for (int i = 0; i < testSize; ++i) {
             data1.add(i);
             data2.add(i);
-        }
-    }
-
-    private void sleeper(int sleepTime) {
-        try {
-            Thread.sleep(sleepTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

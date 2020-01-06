@@ -1,23 +1,20 @@
 package cards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-class DeckTest
-{
+class DeckTest {
     Deck target;
 
-    @BeforeEach
-    void setUp() throws Exception
-    {
+    @Before
+    void setUp() throws Exception {
         target = new Deck();
     }
 
     @Test
-    void test()
-    {
+    void test() {
         assertEquals(52, target.cardList.size());
     }
 
